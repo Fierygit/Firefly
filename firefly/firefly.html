@@ -1,0 +1,458 @@
+<!DOCTYPE html>  
+<html>  
+    <head>  
+    	<meta charset="utf-8">
+        <title>Firefly</title>  
+        <style>  
+      *{
+	margin:0;
+	padding:0;
+      }
+  	
+      .calendar{
+    
+	width:250px;
+	height:300px;
+	background:#fff;
+	box-shadow:0px 1px 1px rgba(0,0,0,0.1);
+}
+.title{
+	height:70px;
+	border-bottom:1px solid rgba(0,0,0,0.1);
+	text-align:center;
+	position:relative;
+}
+#calendar-title{
+	font-size:25px;
+	font-family:arial;
+	font-weight:bold;
+	text-transform:uppercase;
+	padding:14px 0 0 0;
+}
+#calendar-year{
+	font-size:15px;
+	font-family:arial;
+	font-weight:normal;
+}
+#prev{
+	text-indent:-9999px;
+	position:absolute;
+	left:0;
+	top:0;
+	width:60px;
+	height:70px;
+	background:url(prev.png) no-repeat 50% 50%;
+}
+#next{
+	text-indent:-9999px;
+	position:absolute;
+	right:0;
+	top:0;
+	width:60px;
+	height:70px;
+	background:url(next.png) no-repeat 50% 50%;
+}
+.body{
+	padding:10px 20px;
+}
+.body-list ul{
+	width:100%;
+	font-family:arial;
+	font-weight:bold;
+	font-size:14px;
+}
+.body-list ul li{
+	width:14.28%;
+	height:36px;
+	line-height:36px;
+	list-style-type:none;
+	display:block;
+	box-sizing:border-box;
+	float:left;
+	text-align:center;
+}
+.lightgrey{
+	color:#a8a8a8; /*浅灰色*/
+}
+.darkgrey{
+	color:#565656; /*深灰色*/
+}
+.green{
+	color:#6ac13c; /*绿色*/
+}
+.greenbox{
+	border:1px solid #6ac13c;
+	background:#e9f8df;    /*浅绿色背景*/
+}
+     
+        body{   
+            background: url("images/bg_body0.gif");   
+            font-size: 16px;   
+        }   
+  
+        table {   
+            width: 1200px;   
+            border: 0px;   
+            margin: 0px auto;   
+        }   
+        tr {   
+            width: 100%;   
+        }   
+        td {   
+            padding: 0px;   
+        }        
+        
+        #centertd {   
+            border-left-style: dotted;   
+            border-right-style: dotted;   
+            border-left-color: green;   
+            border-right-color: green;   
+        }   
+        #list a{
+        	text-decoration: none; 
+        	color:salmon;
+        }
+        
+        #daohang a{
+        	text-decoration: none;   
+        	font: "微软雅黑";
+        	font-size: x-large;
+        	  color: hotpink;
+        }
+         #daohang a:hover{
+        	color:aqua;
+        }
+        #nav a {   
+            text-decoration: none;   
+            color:#DA70D6;   
+        }   
+        #nav a:hover {   
+            color:#008000;   
+            border-bottom: 2px solid orchid;   
+        }   
+        a.hover img {   
+            width: 400;   
+            height: 400;   
+        }   
+        </style>  
+    </head>  
+  
+    <body>  
+      <!--top部分-->  
+        <table>  
+            <tr height="130">  
+                <td background="111.png" width="581" valign="top">  
+                    <table>  
+                        <tr height="150">  
+                            <!--<td>  
+                                <object width="700" height="108">  
+                                    <param name="movie" value="swf/004.swf" />  
+                                    <param name="quality" value="high" />  
+                                    <param name="wmode" value="transparent" />  
+                                    <embed src="flash/xd.swf" wmode="transparent" width="2000" height="108"></embed>  
+                                </object>  
+                            </td>  
+                            
+                            <td align="right">  
+                                <object width="281" height="35">  
+                                    <param name="movie" value=".swf" />  
+                                    <param name="quality" value="high" />  
+                                    <param name="wmode" value="transparent" />  
+                                    <embed src="flash/clock.swf" wmode="transparent" width="281" height="40"></embed>  
+                                </object>  
+                            </td>  -->
+                            
+                        </tr>  
+                        <tr height="10">  
+                            <td>  
+                                <div id="nav">  
+                                     <a href="firefly.html"><b>主页</b></a>  
+                                     <a href="https://blog.csdn.net/FireflyNo1" target="_blank"><b>博客</b></a>  
+                                     <a href="https://www.flickr.com/photos/166501868@N08/?" target="_blank"><b>相册</b></a>  
+                                     <a href="firefly.html"><b>开发中</b></a>  
+                                <div>  
+                            </td>  
+                        </tr>  
+                        
+                    </table>  
+                </td>  
+            </tr>  
+            
+            <!--middle部分-->  
+            <tr height="620">  
+                <td bgcolor="#E0FFFF">  
+                    <table>  
+                        <tr height="620">  
+     <!--left部分-->  
+                            <td valign="top" width="260">  
+                                <div style="line-height:150%;"><b style="background-color:#98FB98; color: blue;">|个人档案|</b></div><hr width="120" align="left" style="border: double #00FFFF"/>  
+                                <div style="line-height:150%;">  
+                                <img src="images/tp.jpg" align="left" style="margin-right:10px;"/><br />  
+                                    姓名：firefly<br />  
+                                                                        专业：护发专业<br />  
+                                    QQ号：<a href="tencent://message/?uin=531109985&Site=im.qq.com&Menu=yes">531109985</a><br />  
+                                    Email：<a href="531109985@qq.com">531109985@qq.com</a><br />  
+                                    嗜好：computer<br />  
+                                    学校：<a href="http://www.hnu.edu.cn" target="_blank">阳光托儿所</a><br />  
+                                </div><hr style="border: double #00FFFF" />  
+                                <div style="line-height:150%;"><b style="background-color:#98FB98; color: blue;">|背景音乐|</b></div><hr width="120" align="left" style="border: double #00FFFF"/>  
+                                <div style="line-height:150%;">  
+                                	
+                                	<div id="wrap">
+<div id="list">
+<div id="title">my favorite</div>
+<!-- 1.这里添加歌曲，自行修改括号里的数字 -->
+<li><a  href="javascript:void(0);" onclick="playmusic(1)">welcome to new york</a></li>
+<li><a href="javascript:void(0);" onclick="playmusic(2)">没有什么不同</a></li>
+<li><a href="javascript:void(0);" onclick="playmusic(3)">我好想你</a></li>   
+</div>
+<audio id="player" controls="true" >你的浏览器太烂了，请更换浏览器先。</audio>
+<div id="now">正在播放：</div><span id="mp3name">无</span>
+<div style="clear:both"></div>
+</div>
+
+<script type="text/javascript">
+	function playmusic(i){
+	var my = document.getElementById("player"); 
+		
+	switch(i)
+	{
+        //每添加一个歌，则增加一个case，数字和html里设置的匹配
+	case 1:
+		my.setAttribute("src","music/taylor swift - welcome to new york.mp3");   //2.添加歌曲url
+		document.getElementById("mp3name").innerText  = "正在获取歌曲。。。";
+		my.addEventListener("canplaythrough",
+			function() {
+				document.getElementById("mp3name").innerText  = "taylor swift - welcome to new york.mp3";  //3.添加歌名
+			},false);
+                my.play();
+		break;
+		
+	case 2:
+		my.setAttribute("src","music/没有什么不同-曲婉婷.mp3");
+		document.getElementById("mp3name").innerText  = "正在获取歌曲。。。";
+		my.addEventListener("canplaythrough",
+			function() {
+				document.getElementById("mp3name").innerText  = "没有什么不同-曲婉婷";
+			},false);
+                my.play();
+		break;
+				
+	case 3:
+		my.setAttribute("src","music/苏打绿 - 我好想你.mp3"); 
+		document.getElementById("mp3name").innerText  = "正在获取歌曲。。。";
+		my.addEventListener("canplaythrough",
+			function() {
+				document.getElementById("mp3name").innerText  = "苏打绿 - 我好想你";
+			},false);
+                my.play();
+		break;
+	default:
+	}
+}
+</script>
+     <!--<center><input id="start" type="button" value="播放" onclick="bgsound.src="/><font color="red">我是一只小小鸟</font><input id="stop" type="button" value="停止" onclick="bgsound.src=''"/></center>-->  
+                                </div><hr style="border: double #00FFFF" />  
+                                <div style="line-height:150%;"><b style="background-color:#98FB98; color: blue;">|关于|</b></div><hr width="120" align="left" style="border: double #00FFFF"/>  
+                                <div style="line-height:150%; font-size:12px;">  
+<pre>
+        感谢遇到这个时代各位大佬都开源。
+        这个网站由firefly组建 ，所以说明一下出处，
+  首先，框架是在GitHub里看到，这也是我想
+  做这个网站的由来，右边的日历是知乎里一
+  位大神写的，左边最原始的播放器也是在
+  gtihub里看到，右下角的游戏是教程书里
+  的示例。我所做的只是把他们放在 一起，然
+  后拼命地调试。。。
+        虽然有了许多源代码，依旧做的这么难看，
+ 技术还是菜的不行，做这个网站只是想了解下
+ 前端，也发现我不喜欢前端，前端不适合我。
+ 	 2018 summer。
+ 	 到此结束。
+<br/><br/>
+</pre>  
+                                </div><hr style="border: double #00FFFF" />        
+                                  <div style="line-height:150%;"><b style="background-color:#98FB98; color: blue;">|开发中|</b></div><hr width="120" align="left" style="border: double #00FFFF"/>  
+                                <div style="line-height:150%;">  
+                                	
+                                	<br/><br/><br/><br/><br/>  
+                                	   </div><hr style="border: double #00FFFF" />   
+                            </td>  
+ <!--middle部分-->  
+ 
+ 
+                            <td valign="top" id="centertd" width="531">  
+                                <br /><marquee><font color="green">欢迎访问我的个人主页！<br /></font></marquee>  
+                                <div style="line-height:150%;"><b style="background-color:aquamarine; color: blue;">|photo（超链接）|</b></div><hr width="120" align="left" style="border: double #00FFFF"/>  
+                                <div style="background-color:azure;">  
+                                    <hr />  
+                                        <marquee scrollamount="2" onmouseover="this.stop();" onmouseout="this.start();">  
+                                            <a href="tencent://message/?uin=507662857&Site=im.qq.com&Menu=yes" target="_blank"><img src="滑稽.jpg" width="100" height="100"></a>  
+                                            <a href="small/微信图片_20180822182021.jpg" target="_blank"><img src="small/微信图片_20180822182021.jpg" width="100" height="100"></a>  
+                                            <a href="small/微信图片_20180822182050.jpg" target="_blank"><img src="small/微信图片_20180822182050.jpg" width="100" height="100"></a>  
+                                            <a href="small/微信图片_20180822182055.jpg" target="_blank"><img src="small/微信图片_20180822182055.jpg" width="100" height="100"></a>  
+                                            <a href="small/微信图片_20180822182058.jpg" target="_blank"><img src="small/微信图片_20180822182058.jpg" width="100" height="100"></a>  
+                                            <a href="small/微信图片_20180822182101.jpg" target="_blank"><img src="small/微信图片_20180822182101.jpg" width="100" height="100"></a>  
+                                            <a href="small/微信图片_20180822182105.jpg" target="_blank"><img src="small/微信图片_20180822182105.jpg" width="100" height="100"></a>  
+                                            <a href="small/微信图片_20180822182109.jpg" target="_blank"><img src="small/微信图片_20180822182109.jpg" width="100" height="100"></a>  
+                                            <a href="images/shu.jpg" target="_blank"><img src="滑.jpg" width="100" height="100"></a>  
+                                            <a href="images/haha.jpg" target="_blank"><img src="滑.jpg" width="100" height="100"></a>  
+                                        </marquee>  
+                                    <hr />  
+                                </div>  
+                                <div style="line-height:150%;"><b style="background-color:#98FB98; color: blue;">|movies|</b></div><hr width="120" align="left" style="border: double #00FFFF"/>  
+                                <div style="line-height:250%;">  
+                                    <hr width="80%"/> <!--<img src="images/tp.jpg" width="30" height="30"/>-->           <a href="http://student.csdn.net/space.php?uid=209919&do=blog&id=45822" target="_blank" style="text-decoration: none;">1.《狗十三》</a><br />  
+                                    <hr width="80%"/><!--<img src="images/tp.jpg" width="30" height="30"/>--> <a href="http://student.csdn.net/space.php?uid=209919&do=blog&id=45459" target="_blank" style="text-decoration: none;">2.《忠爱无言》</a><br />  
+                                   <hr />  
+                                </div>  
+                                 
+                                <div style="line-height:150%;"><b style="background-color:#98FB98; color: blue;">|schedule|</b></div><hr width="120" align="left" style="border: double #00FFFF"/>  
+                                <div style="line-height:250%;">  
+                                    <hr /> <!--<img src="images/tp.jpg" width="30" height="30"/>-->           <a href="http://student.csdn.net/space.php?uid=209919&do=blog&id=45822" target="_blank" style="text-decoration: none;">1.每天两千个俯卧撑</a><br />  
+                                    <hr width="80%"/><!--<img src="images/tp.jpg" width="30" height="30"/>--> <a href="http://student.csdn.net/space.php?uid=209919&do=blog&id=45459" target="_blank" style="text-decoration: none;">2.游戏两小时</a><br />  
+                                    <hr />  
+                                </div>  
+                                
+                            </td>  
+                            <!--right部分-->  
+                            <td valign="top" width="190">  
+                                <div style="line-height:150%;"> <b style="background-color:#98FB98; color: blue;">|日历|</b> </div>
+                                <hr width="120" align="left" style="border: double #00FFFF"/>  
+                               <div class="calendar">
+                				<div class="title">
+    <h1 class="green" id="calendar-title">Month</h1>
+    <h2 class="green small" id="calendar-year">Year</h2>
+    <a href="" id="prev">Prev Month</a>
+    <a href="" id="next">Next Month</a>
+  </div>
+  <div class="body">
+    <div class="lightgrey body-list">
+      <ul>
+        <li>MON</li>
+        <li>TUE</li>
+        <li>WED</li>
+        <li>THU</li>
+        <li>FRI</li>
+        <li>SAT</li>
+        <li>SUN</li>
+      </ul>
+    </div>
+    <div class="darkgrey body-list">
+      <ul id="days">
+      </ul>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+var month_olympic = [31,29,31,30,31,30,31,31,30,31,30,31];
+var month_normal = [31,28,31,30,31,30,31,31,30,31,30,31];
+var month_name = ["January","Febrary","March","April","May","June","July","Auguest","September","October","November","December"];
+var holder = document.getElementById("days");
+var prev = document.getElementById("prev");
+var next = document.getElementById("next");
+var ctitle = document.getElementById("calendar-title");
+var cyear = document.getElementById("calendar-year");
+var my_date = new Date();
+var my_year = my_date.getFullYear();
+var my_month = my_date.getMonth();
+var my_day = my_date.getDate();
+prev.onclick = function(e){
+	e.preventDefault();
+	my_month--;
+	if(my_month<0){
+		my_year--;
+		my_month = 11;
+	}
+	refreshDate();
+}
+next.onclick = function(e){
+	e.preventDefault();
+	my_month++;
+	if(my_month>11){
+		my_year++;
+		my_month = 0;
+	}
+	refreshDate();
+}
+function refreshDate(){
+	var str = "";
+	var totalDay = daysMonth(my_month, my_year); //获取该月总天数
+	var firstDay = dayStart(my_month, my_year); //获取该月第一天是星期几
+	var myclass;
+	for(var i=1; i<firstDay; i++){ 
+		str += "<li></li>"; //为起始日之前的日期创建空白节点
+	}
+	for(var i=1; i<=totalDay; i++){
+		if((i<my_day && my_year==my_date.getFullYear() && my_month==my_date.getMonth()) || my_year<my_date.getFullYear() || ( my_year==my_date.getFullYear() && my_month<my_date.getMonth())){ 
+			myclass = " class='lightgrey'"; //当该日期在今天之前时，以浅灰色字体显示
+		}else if (i==my_day && my_year==my_date.getFullYear() && my_month==my_date.getMonth()){
+			myclass = " class='green greenbox'"; //当该日期是当天时，以绿色背景突出显示
+		}else{
+			myclass = " class='darkgrey'"; //当该日期在今后之后时，以深灰字体显示
+		}
+		str += "<li"+myclass+">"+i+"</li>"; //创建日期节点
+	}
+	holder.innerHTML = str; //设置日期显示
+	ctitle.innerHTML = month_name[my_month]; //设置英文月份显示
+	cyear.innerHTML = my_year; //设置年份显示
+}
+//获取某年某月第一天是星期几
+function dayStart(month, year) {
+	var tmpDate = new Date(year, month, 1);
+	return (tmpDate.getDay());
+}
+
+//计算某年是不是闰年，通过求年份除以4的余数即可
+function daysMonth(month, year) {
+	var tmp = year % 4;
+	if (tmp == 0) {
+		return (month_olympic[month]);
+	} else {
+		return (month_normal[month]);
+	}
+}
+refreshDate();
+</script>
+
+                                <object width="190" height="108">  
+                                    <param name="movie" value="http://www.nshen.net/blog/attachments/month_0505/rili.swf" />  
+                                    <param name="quality" value="high" />  
+                                    <param name="wmode" value="transparent" />  
+                                    <embed src="http://www.nshen.net/blog/attachments/month_0505/rili.swf" type="application/x-shockwave-flash"></embed>  
+                                </object>  
+                                <hr style="border: double #00FFFF" />  
+                                
+                                <div style="line-height:150%;"><b style="background-color:#98FB98; color: blue;">|绿色导航|</b></div><hr width="120" align="left" style="border: double #00FFFF"/>  
+                                   <div id="daohang">
+                                   	<center><a href="http://www.baidu.com/" target="_blank"><img src="baidu_logo.jpg" border="0px" width="150" height="40"></a></center><br />  
+                                    <center><a href="http://www.google.com.hk/" target="_blank"><!--img src="images/gg.gif" border="0px" width="90" height="30"-->google</a></center><br />  
+                                    <center><a href="http://cn.bing.com/" target="_blank">bing<!--img src="images/by.jpg" border="0px" width="100" height="30"--></a></center><br />  
+                                   </div>
+                                                 <hr style="border: double #00FFFF" />  
+                                <div style="line-height:150%;"><b style="background-color:#98FB98; color: blue;">|小运用|</b></div><hr width="120" align="left" style="border: double #00FFFF"/>  
+                                    <div style="line-height:200%;">  
+                                        <font color="blue"></font> <a href="app/1.html" target="_blank" text-decoration: none; >躲避小游戏</a><br />  
+                                        <font color="blue">  </font> <a href="app/2.html" target="_blank" text-decoration: none; >迷宫        </a><br />  
+                                        <font color="blue"> </font> <a href="app/3.html" target="_blank" text-decoration: none;>snake    </a><br />  
+                                        <font color="blue"></font> <a href="app/12-4/4.html" target="_blank">俄罗斯方块</a><br />  
+                                        <font color="blue"></font> <a href="app/5.html" target="_blank">抽奖</a><br />  
+                                        <font color="blue"></font> <a href="app/从一加到给定数值.html" target="_blank">从1加到n</a><br />  
+                                        <font color="blue">开发中</font> <a href="app/5.html" target="_blank">点击进入</a><br />  
+                                        <font color="blue">开发中</font> <a href="#" target="_blank">点击进入</a>  
+                                    </div>  
+                                <hr style="border: double #00FFFF" />  
+                            </td>  
+                        </tr>  
+                    </table>  
+                </td>  
+            </tr>  
+            <tr height="40">  
+                <td valign="middle" bgcolor="#4169D1" align="center">Made by<a href="tencent://message/?uin=507662857&Site=im.qq.com&Menu=yes">  firefly</a>  2018年  summer</td>               
+            </tr>  
+        </table>  
+        
+        <bgsound id="bgsound" src="music/taylor swift - welcome to new york.mp3" loop="-1">  
+    </body>  
+</html>  

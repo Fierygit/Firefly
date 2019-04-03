@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="UTF-8">
+		<title>加到特定的数</title>
+	<script type="text/javascript">
+		function calculate(){
+			var num = parseInt(document.getElementById("num").value,10);
+			var result =0 ;
+			for(var i=0;i<=num;i++)
+			result+=i;
+			alert("合计值为 "  +result+  "。");
+		}
+		
+	</script>
+	<style type="text/css">
+		body{
+		background-color:#CCCCCC;
+	}
+		div{
+			margin: 0 auto;
+		}
+		.style1{
+			
+			color: red;
+		}
+		    .cent{
+		    	
+			  	width: 400px;           		/*设置字体宽度,否则看不出居中效果*/
+				border: 5px dashed #00FFFF;  	/*类别选择器设置边框线   内间距*/
+				padding: 10px 15px; 
+				   
+         width: 400px;
+    height: 170px;
+    position: absolute;
+    left: 50%;
+    top: 30%;
+    transform: translate(-50%,-50%); 
+	    /*设置间距*/	
+			}
+			.cent .duanluo {
+				font-weight: normal;      		/*  2次类别选择器设置取消加粗效果*/
+				line-height: 1.5em; 			/*段落行高*/
+				text-align: center;
+				color: chartreuse;		    	 /*文本左对齐*/
+			}
+			.cent .duanluo span{
+				color: yellow;
+				
+			}
+			.cent .duanluo span
+	/*#imp{border: 5px dashed #3366FF;}    */          /*Id选择器设置边框线*/
+	</style>
+	</head>
+	<body>
+		
+	<div class="cent" >
+		<h2 class="duanluo" > 从给定数值的求和示例</p>
+		<span>输入数值：</span><input type="text" id="num">
+		<button onclick="calculate()" class="style1">计算</button>
+	</div>
+		
+	</body>
+</html>
