@@ -1,0 +1,8 @@
+#include <stdio.h>
+int main(){
+	int a;
+	int b = a;
+	print("%d\n",b + a );
+
+return 0;
+}
